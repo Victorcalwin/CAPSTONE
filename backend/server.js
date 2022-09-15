@@ -11,7 +11,7 @@ dotenv.config();
 connectDB();
 const app = express();
 
-app.use(express.json()); // to accept json data
+app.use(express.json());
 
 // app.get("/", (req, res) => {
 //   res.send("API Running!");
@@ -46,7 +46,7 @@ app.use(errorHandler);
 const PORT = process.env.PORT;
 
 const server = app.listen(
-    5000,
+    PORT,
     console.log(`Server running on PORT ${PORT}...`.yellow.bold)
 );
 
@@ -54,7 +54,7 @@ const io = require("socket.io")(server, {
     pingTimeout: 60000,
     cors: {
         origin: "http://localhost:3000",
-        // credentials: true,
+
     },
 });
 
